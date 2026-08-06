@@ -154,7 +154,9 @@ def test_black_death_rejects_unsupported_subspace():
     from gymnasium.spaces import MultiBinary
 
     bad_spaces = {
-        f"a{idx}": Dict({"ok": Box(low=0.0, high=1.0, shape=[3]), "bad": MultiBinary(4)})
+        f"a{idx}": Dict(
+            {"ok": Box(low=0.0, high=1.0, shape=[3]), "bad": MultiBinary(4)}
+        )
         for idx in range(2)
     }
     env = DummyParEnv(dict_obs, bad_spaces, base_act_spaces)
